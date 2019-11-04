@@ -272,7 +272,7 @@ height:40vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">658</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">675</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -407,7 +407,7 @@ height:40vh;
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Huawei&gt; system-view</span><br><span class="line">[Huawei] sysname AR1</span><br><span class="line">[AR1]</span><br><span class="line">	#配置接口地址</span><br><span class="line">[AR1] interface GigabitEthernet 0/0/0		#进入GE 0/0/0 接口	</span><br><span class="line">[AR1-GigabitEthernet0/0/0] ip address 1.0.0.1 8		#添加IP地址</span><br></pre></td></tr></table></figure>
 <p><strong>ip address xx.xx.xx.xx X , xx.xx.xx.xx为十进制ip地址, X 为CIDR掩码位数</strong><br>若有一下提示<br>Nov  4 2019 19:31:21-08:00 AR1 %%01IFNET/4/LINK_STATE(l)[0]:The line protocol IP<br> on the interface GigabitEthernet0/0/0 has entered the UP state.   &lt;===<strong>UP state</strong><br> 即为配置成功<br> 若配置失败,使用 undo ip address xx.xx.xx.xx X<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[AR1-GigabitEthernet0/0/0] q 	#退出当前接口</span><br><span class="line">[AR1] interface GigabitEthernet 0/0/1 	#进入下一个接口</span><br></pre></td></tr></table></figure><br><strong>按照上述操作依次配好4个路由器接口</strong> </p>
 <p>配置完成后,可使用<strong>display current-configuration</strong>查看配置是否和规划一致<br><img src="/image/0033.png" alt="img2"></p>
-<h1 id="静态路由配置"><a href="#静态路由配置" class="headerlink" title="静态路由配置"></a>静态路由配置</h1><p>要实现全网连通,要让pc1 ping通每一个网段,<br>经过分析路由器<br><strong>AR1</strong> 让pc1,<br>从 自己 到23.0.0.0网段下一跳为 12.0.0.2<br>从 自己 到34.0.0.0网段下一跳为 12.0.0.2<br>从 自己 到 4.0.0.0网段下一跳为 12.0.0.2<br>综上可直接设置默认路由为<br>===========================&gt;<br>ip route-static 0.0.0.0 0 12.0.0.2<br>&emsp;&emsp;&emsp;&emsp; &emsp;目的地址 掩码 下一跳<br><img src="/image/0034.png" alt="img3"><br><strong>AR2</strong><br>从 自己 到 1.0.0.0网段下一跳为 12.0.0.1<br>从 自己 到34.0.0.0网段下一跳为 23.0.0.2<br>从 自己 到 4.0.0.0网段下一跳为 23.0.0.2<br><img src="/image/0035.png" alt="img4"><br><strong>AR3</strong><br>从 自己 到 1.0.0.0网段下一跳为 23.0.0.1<br>从 自己 到12.0.0.0网段下一跳为 23.0.0.1<br>从 自己 到 4.0.0.0网段下一跳为 34.0.0.2<br><img src="/image/0036.png" alt="img5"><br><strong>AR4</strong><br>从 自己 到 1.0.0.0网段下一跳为 34.0.0.1<br>从 自己 到12.0.0.0网段下一跳为 34.0.0.1<br>从 自己 到23.0.0.0网段下一跳为 34.0.0.1<br>综上可直接设置默认路由为<br>===========================&gt;<br>ip route-static 0.0.0.0 0 34.0.0.1<br><img src="/image/0037.png" alt="img6"></p>
+<h1 id="静态路由配置"><a href="#静态路由配置" class="headerlink" title="静态路由配置"></a>静态路由配置</h1><p>要实现全网连通,要让pc1 ping通每一个网段,<br>经过分析路由器<br><strong>AR1</strong> 让pc1,<br>从 自己 到23.0.0.0网段下一跳为 12.0.0.2<br>从 自己 到34.0.0.0网段下一跳为 12.0.0.2<br>从 自己 到 4.0.0.0网段下一跳为 12.0.0.2<br>综上可直接设置默认路由为<br>===========================&gt;<br>ip route-static 0.0.0.0 0 12.0.0.2<br>&emsp;&emsp;&emsp;&emsp; &emsp;目的地址 掩码 下一跳<br><strong>下一跳地址为下一个路由器的入口端口ip</strong><br><img src="/image/0034.png" alt="img3"><br><strong>AR2</strong><br>从 自己 到 1.0.0.0网段下一跳为 12.0.0.1<br>从 自己 到34.0.0.0网段下一跳为 23.0.0.2<br>从 自己 到 4.0.0.0网段下一跳为 23.0.0.2<br><img src="/image/0035.png" alt="img4"><br><strong>AR3</strong><br>从 自己 到 1.0.0.0网段下一跳为 23.0.0.1<br>从 自己 到12.0.0.0网段下一跳为 23.0.0.1<br>从 自己 到 4.0.0.0网段下一跳为 34.0.0.2<br><img src="/image/0036.png" alt="img5"><br><strong>AR4</strong><br>从 自己 到 1.0.0.0网段下一跳为 34.0.0.1<br>从 自己 到12.0.0.0网段下一跳为 34.0.0.1<br>从 自己 到23.0.0.0网段下一跳为 34.0.0.1<br>综上可直接设置默认路由为<br>===========================&gt;<br>ip route-static 0.0.0.0 0 34.0.0.1<br><img src="/image/0037.png" alt="img6"></p>
 <h1 id="查看路由表"><a href="#查看路由表" class="headerlink" title="查看路由表"></a>查看路由表</h1><p><strong>AR1, AR2</strong><br><img src="/image/0038.png" alt="img7"><br><strong>AR3, AR4</strong><br><img src="/image/0039.png" alt="img8"></p>
 <h1 id="测试网络连通性"><a href="#测试网络连通性" class="headerlink" title="测试网络连通性"></a>测试网络连通性</h1><p><strong>使用PC1, ping各个网段, tracert 命令测试路由路径</strong><br><img src="/image/0040.png" alt="img9"></p>
 <p>下一篇应该是ospf, wait………</p>
@@ -418,8 +418,8 @@ height:40vh;
         <div class="license-wrapper">
             <p>原文作者：<a href="http://AdminJunn.github.io">AdminJunn</a>
             <p>原文链接：<a href="http://adminjunn.github.io/2019/11/04/enspstatic_route/">http://adminjunn.github.io/2019/11/04/enspstatic_route/</a>
-            <p>发表日期：<a href="http://adminjunn.github.io/2019/11/04/enspstatic_route/">十一月 4日 2019, 6:57:22 晚上</a>
-            <p>更新日期：<a href="http://adminjunn.github.io/2019/11/04/enspstatic_route/">November 4th 2019, 8:43:45 pm</a>
+            <p>发表日期：<a href="http://adminjunn.github.io/2019/11/04/enspstatic_route/">November 4th 2019, 6:57:22 pm</a>
+            <p>更新日期：<a href="http://adminjunn.github.io/2019/11/04/enspstatic_route/">November 4th 2019, 8:45:06 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -591,6 +591,8 @@ top:40vh;
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 3
@@ -603,6 +605,20 @@ top:40vh;
     
     
     
+    
+    <div class="archive-year"> Invalid date </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/04/enspstatic_route/" >eNSP路由配置（一）</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
@@ -617,24 +633,12 @@ top:40vh;
             <span class="archive-post-date">10/30</span><a class="archive-post-title" href= "/2019/10/30/Hexo+Github+Win/" >github + hexo + Windows折腾过程</a>
         </li>
     
-    
-    
-    
-    
-        </ul>
-    
-    <div class="archive-year"> Invalid date </div>
-    <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">Invalid date</span><a class="archive-post-title" href= "/2019/11/04/enspstatic_route/" >eNSP路由配置（一）</a>
-        </li>
-    
     </div>
   </div>
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="HCNA"><span class="iconfont-archer">&#xe606;</span>HCNA</span>
     
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
@@ -643,8 +647,6 @@ top:40vh;
         <span class="sidebar-tag-name" data-tags="onethink"><span class="iconfont-archer">&#xe606;</span>onethink</span>
     
         <span class="sidebar-tag-name" data-tags="AWD"><span class="iconfont-archer">&#xe606;</span>AWD</span>
-    
-        <span class="sidebar-tag-name" data-tags="HCNA"><span class="iconfont-archer">&#xe606;</span>HCNA</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -679,11 +681,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="HCNA"><span class="iconfont-archer">&#xe60a;</span>HCNA</span>
+    
         <span class="sidebar-category-name" data-categories="博客搭建"><span class="iconfont-archer">&#xe60a;</span>博客搭建</span>
     
         <span class="sidebar-category-name" data-categories="web安全"><span class="iconfont-archer">&#xe60a;</span>web安全</span>
-    
-        <span class="sidebar-category-name" data-categories="HCNA"><span class="iconfont-archer">&#xe60a;</span>HCNA</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
