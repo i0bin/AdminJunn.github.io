@@ -22,7 +22,7 @@
     <meta name="description" content="用心">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>eNSP路由配置（二） · AdminJunn&#39;s blog</title>
+    <title>github + hexo + Windows折腾过程 · AdminJunn&#39;s blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/" >AdminJunn</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">eNSP路由配置（二）</a>
+                <a href="#" class="post-name">github + hexo + Windows折腾过程</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:40vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            eNSP路由配置（二）
+            github + hexo + Windows折腾过程
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,20 @@ height:40vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "HCNA">HCNA</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "hexo">hexo</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Windows">Windows</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">547</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">600</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/11/04</span>
+                    <span class="post-intro-time">2019/10/31</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,33 +403,46 @@ height:40vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="规划拓扑"><a href="#规划拓扑" class="headerlink" title="规划拓扑"></a>规划拓扑</h1><p>4个 <strong>AR2220 路由器</strong> , 4台 <strong>PC</strong> , 2台 <strong>S3700 交换机</strong><br>这个规划图需要在<strong>AR1,AR4</strong>上各加2个”2SA”接口卡<br><img src="/image/0041.png" alt="img-1"><br><strong>规划如图</strong><br><img src="/image/0042.png" alt="img0"></p>
-<h1 id="按照规划配置各接口ip"><a href="#按照规划配置各接口ip" class="headerlink" title="按照规划配置各接口ip"></a>按照规划配置各接口ip</h1><p>&emsp;配置方法在上一篇中已写<br><strong>AR1</strong> 和 <strong>AR4</strong> 的Serial接口ip与其他接口配置一样<br><strong>例:</strong><br><img src="/image/0043.png" alt="img1"></p>
-<h1 id="配置ospf"><a href="#配置ospf" class="headerlink" title="配置ospf"></a>配置ospf</h1><p><strong>AR1</strong><br>net命令===&gt;<br>&emsp;net 本路由器直连网段 通配符掩码<br><strong><a href="https://baike.baidu.com/item/%E9%80%9A%E9%85%8D%E7%AC%A6%E6%8E%A9%E7%A0%81/9688947?fr=aladdin" target="_blank" rel="noopener">通配符掩码</a>:</strong>（wildcard-mask）路由器使用的通配符掩码与源或目标地址一起来分辨匹配的地址范围，它与子网掩码不同。它不像子网掩码告诉路由器IP地址的哪一位属于网络号一样，通配符掩码告诉路由器为了判断出匹配，它需要检查IP地址中的多少位.<br><img src="/image/0051.png" alt="img9"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[AR1] ospf</span><br><span class="line">[AR1-ospf<span class="number">-1</span>] area <span class="number">0</span></span><br><span class="line">[AR1-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">1.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">[AR1-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">12.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR1-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">13.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR1-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">14.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/0044.png" alt="img2"><br><strong>AR2</strong><br><strong>以下配置中途会弹出提示消息{ospf从其他路由器学到的路由信息}(粉色框)</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[AR2] ospf</span><br><span class="line">[AR2-ospf<span class="number">-1</span>] area <span class="number">0</span></span><br><span class="line">[AR2-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">12.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR2-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">24.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/0045.png" alt="img3"><br><strong>AR3</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[AR3] ospf</span><br><span class="line">[AR3-ospf<span class="number">-1</span>] area <span class="number">0</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">13.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">34.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/0046.png" alt="img4"><br><strong>AR4</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[AR3] ospf</span><br><span class="line">[AR3-ospf<span class="number">-1</span>] area <span class="number">0</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">4.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">14.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">24.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br><span class="line">[AR3-ospf<span class="number">-1</span>-area<span class="number">-0.0</span><span class="number">.0</span><span class="number">.0</span>] net <span class="number">34.0</span><span class="number">.0</span><span class="number">.0</span> <span class="number">0.0</span><span class="number">.0</span><span class="number">.255</span></span><br></pre></td></tr></table></figure>
-<p><img src="/image/0047.png" alt="img5"></p>
-<h1 id="查看ospf路由"><a href="#查看ospf路由" class="headerlink" title="查看ospf路由"></a>查看ospf路由</h1><p><strong>这里示例一个,AR2,AR3,AR4 ,查看方法都一样</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[AR1] display ospf routing</span><br></pre></td></tr></table></figure>
-<p><img src="/image/0048.png" alt="img6"></p>
-<h1 id="查看路由器路由表"><a href="#查看路由器路由表" class="headerlink" title="查看路由器路由表"></a>查看路由器路由表</h1><p><strong>这里示例一个,AR2,AR3,AR4 ,查看方法都一样</strong></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[AR1] display ip routing-table</span><br></pre></td></tr></table></figure>
-<p><img src="/image/0049.png" alt="img7"></p>
-<h1 id="测试全网连通性"><a href="#测试全网连通性" class="headerlink" title="测试全网连通性"></a>测试全网连通性</h1><p>打开PC1 , 使用ping, tracert 命令进行测试<br><img src="/image/0050.png" alt="img8"></p>
+        <p><strong>就不唠嗑了，直接上教程了。</strong></p>
+<h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">地址在此</a></p>
+<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">地址在此</a><br><strong>安装成功后，Win+R 打开cmd</strong><br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Admin&gt;git --version</span><br><span class="line">C:\Users\Admin&gt;node --version</span><br><span class="line">C:\Users\Admin&gt;npm --version</span><br></pre></td></tr></table></figure></p>
+<p><img src="/image/0007.png" alt="img0" title="cmd"><br><em>有如图类似版本号回复即安装成功</em></p>
+<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><p>在D盘新建Blog/Hexo文件夹，进入文件夹，在文件夹内空白处右击，点击”Git Bash here”<br>依次输入：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br><img src="/image/0009.png" alt="img1" title="hexo"><br>打开D:/Blog/Hexo如图显示<br><img src="/image/0030.png" alt="img19" title="index"><br>git终端输入<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><br>    出现以下提示即可以打开浏览器输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 开始预览安装效果<br>    <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  <span class="built_in">Start</span> processing</span><br><span class="line">INFO  Hexo is running <span class="built_in">at</span> http://localhost:<span class="number">4000</span> . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><br><img src="/image/0029.png" alt="img18" title="index"></p>
+<h3 id="4-将博客部署到-Github-上"><a href="#4-将博客部署到-Github-上" class="headerlink" title="4.将博客部署到 Github 上"></a>4.将博客部署到 Github 上</h3><ul>
+<li>a. 注册Github <a href="https://github.com/join?source=header" target="_blank" rel="noopener">地址在此</a></li>
+<li>b. 创建仓库<br>  <em>点击 <strong>右上角头像-&gt;Your repository-&gt;New</strong> 开始创建，</em></li>
+</ul>
+<p><img src="/image/0008.png" alt="img2" title="New repository"></p>
+<p><img src="/image/0014.png" alt="img3" title="New repository"></p>
+<ul>
+<li>c.配置SSH密钥<br>进入Blog文件夹，右击，打开Git Bash Here <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> // <span class="string">" "</span>内为你的邮箱</span><br></pre></td></tr></table></figure>
+<img src="/image/0015.png" alt="img4" title="RSA"><br>然后复制公钥,此命令会将公钥复制到剪贴板<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+点击GitHub右上角头像 –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH key<br><img src="/image/0016.png" alt="img5" title="Add SSH Key"><br><strong>测试</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<img src="/image/0017.png" alt="img6" title="Test SSH"><br><strong>配置Git信息</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span> //填你自己的</span><br><span class="line">git config --global user.email  <span class="string">"Email"</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>返回仓库界面，点击 Use SSH 然后点击3箭头所指 复制 地址<br><img src="/image/0018.png" alt="img7" title="SSH"></p>
+<p><strong>打开D:/Blog/Hexo/_config.yml</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: 你复制的地址    </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p><strong>//！！每个：后面都有个空格！！</strong><br><img src="/image/0019.png" alt="img8" title="_config.yml"><br><strong>然后直接 hexo g -d</strong><br><img src="/image/0020.png" alt="img9" title="error"><br><strong>若有以上Error，请执行</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>然后再执行 hexo g -d<br><img src="/image/0021.png" alt="img10" title="updata"><br><strong>恭喜！你的blog成功上传至Github，你可使用 <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 访问你的主页</strong><br><strong>如果出现404，请打开仓库设置，GitHub Pages –&gt; Source –&gt; master branch</strong><br><img src="/image/0027.png" alt="img16" title="404"><br><img src="/image/0028.png" alt="img17" title="404"></p>
+<h3 id="5-写Blog"><a href="#5-写Blog" class="headerlink" title="5.写Blog"></a>5.写Blog</h3><p><strong>在Hexo文件夹内打开Git Bash</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章title"</span></span><br></pre></td></tr></table></figure>
+<p>在 /Hexo/source/_posts 文件夹下会生成相应的 “文章tiile.md” 的文档,打开编辑<br><em>基本格式为</em><br><img src="/image/0022.png" alt="img11" title="test.md"><br><strong>写完后hexo g -d推送到blog主页</strong></p>
+<h3 id="6-换主题"><a href="#6-换主题" class="headerlink" title="6.换主题"></a>6.换主题</h3><p><strong>进入Hexo官方主题库 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">点此进入</a></strong><br><img src="/image/0023.png" alt="img12" title="themes"><br>找到自己喜欢的主题点开，再点击最下面的主题地址<br><img src="/image/0024.png" alt="img13" title="themes"><br>根据官方教程安装主题<br><strong>注意 clone成功后，需将Hexo文件夹下_config.yml中的theme: 字段改为相应的主题名，如：下下图</strong><br><img src="/image/0025.png" alt="img14" title="themes"><br><img src="/image/0026.png" alt="img15" title="themes"></p>
+<p><strong>主题安装成功 hexo clean 清除缓存，hexo g -d 上传到github</strong></p>
+<p><strong>凑字数</strong></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://AdminJunn.github.io">AdminJunn</a>
-            <p>原文链接：<a href="http://adminjunn.github.io/2019/11/04/eNSP_ospf/">http://adminjunn.github.io/2019/11/04/eNSP_ospf/</a>
-            <p>发表日期：<a href="http://adminjunn.github.io/2019/11/04/eNSP_ospf/">November 4th 2019, 10:37:58 pm</a>
-            <p>更新日期：<a href="http://adminjunn.github.io/2019/11/04/eNSP_ospf/">November 4th 2019, 10:37:24 pm</a>
+            <p>原文链接：<a href="http://adminjunn.github.io/2019/10/31/Hexo+Github+Win/">http://adminjunn.github.io/2019/10/31/Hexo+Github+Win/</a>
+            <p>发表日期：<a href="http://adminjunn.github.io/2019/10/31/Hexo+Github+Win/">十月 31日 2019, 10:37:58 晚上</a>
+            <p>更新日期：<a href="http://adminjunn.github.io/2019/10/31/Hexo+Github+Win/">November 4th 2019, 10:38:05 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -435,12 +450,17 @@ height:40vh;
     <ul class="post-paginator">
         <li class="next">
             
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/11/04/eNSP_static_route/" title= "eNSP路由配置（一）">
+                    <div class="nextTitle">eNSP路由配置（一）</div>
+                </a>
+            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/2019/11/04/eNSP_static_route/" title= "eNSP路由配置（一）">
-                    <div class="prevTitle">eNSP路由配置（一）</div>
+                <a href= "/2019/10/30/OnethinkVulnerability/" title= "onethink文件缓存漏洞复现">
+                    <div class="prevTitle">onethink文件缓存漏洞复现</div>
                 </a>
             
         </li>
@@ -559,7 +579,7 @@ top:40vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#规划拓扑"><span class="toc-number">1.</span> <span class="toc-text">规划拓扑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#按照规划配置各接口ip"><span class="toc-number">2.</span> <span class="toc-text">按照规划配置各接口ip</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置ospf"><span class="toc-number">3.</span> <span class="toc-text">配置ospf</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看ospf路由"><span class="toc-number">4.</span> <span class="toc-text">查看ospf路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#查看路由器路由表"><span class="toc-number">5.</span> <span class="toc-text">查看路由器路由表</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#测试全网连通性"><span class="toc-number">6.</span> <span class="toc-text">测试全网连通性</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装git"><span class="toc-number">1.</span> <span class="toc-text">1.安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装Node-js"><span class="toc-number">2.</span> <span class="toc-text">2.安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装Hexo"><span class="toc-number">3.</span> <span class="toc-text">3.安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-将博客部署到-Github-上"><span class="toc-number">4.</span> <span class="toc-text">4.将博客部署到 Github 上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-写Blog"><span class="toc-number">5.</span> <span class="toc-text">5.写Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-换主题"><span class="toc-number">6.</span> <span class="toc-text">6.换主题</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
