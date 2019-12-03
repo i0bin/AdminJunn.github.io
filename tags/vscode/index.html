@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>github + hexo + Windows折腾过程 | AdminJunn&#39;s Blog</title>
+  <title>Tag: vscode | AdminJunn&#39;s Blog</title>
   
   <meta name="keywords" content="AdminJunn, AdminJunn's, AdminJunn's Blog">
   
@@ -50,7 +50,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post half'>
+    <cover class='cover  half'>
       
         
   <h1 class='title'>AdminJunn</h1>
@@ -253,11 +253,25 @@
 
   <div class="l_body">
     <div class='body-wrapper'>
-      <div class='l_main'>
+      
+<div class='l_main'>
   
-
-  <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
     
+      
+  <section class="post-list">
+    
+      
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
 
 
   <section class='meta'>
@@ -266,13 +280,11 @@
     <div class="meta" id="header-meta">
       
         
-  
-    <h1 class="title">
-      <a href="/2019/10/31/Hexo+Github+Win/">
-        github + hexo + Windows折腾过程
-      </a>
-    </h1>
-  
+  <h2 class="title">
+    <a href="/2019/12/03/vscodeC_C++/">
+      VScode配置C环境
+    </a>
+  </h2>
 
 
       
@@ -300,7 +312,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-10-31</p>
+    <p>2019-12-03</p>
   </a>
 </div>
 
@@ -310,29 +322,11 @@
             
   
   <div class='new-meta-item category'>
-    <a href='/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/' rel="nofollow">
+    <a href='/categories/vscode/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
-      <p>博客搭建</p>
+      <p>vscode</p>
     </a>
   </div>
-
-
-          
-        
-          
-            
-  
-    <div class="new-meta-item browse busuanzi">
-      <a class='notlink'>
-        <i class="fas fa-eye" aria-hidden="true"></i>
-        <p>
-          <span id="busuanzi_value_page_pv">
-            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
-          </span>
-        </p>
-      </a>
-    </div>
-  
 
 
           
@@ -350,154 +344,46 @@
   </section>
 
 
-    <section class="article typo">
-      <div class="article-entry" itemprop="articleBody">
-        <p><strong>就不唠嗑了，直接上教程了。</strong></p>
-<h3 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h3><p><a href="https://git-scm.com/download/win" target="_blank" rel="noopener">地址在此</a></p>
-<h3 id="2-安装Node-js"><a href="#2-安装Node-js" class="headerlink" title="2.安装Node.js"></a>2.安装Node.js</h3><p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">地址在此</a><br><strong>安装成功后，Win+R 打开cmd</strong><br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Admin&gt;git --version</span><br><span class="line">C:\Users\Admin&gt;node --version</span><br><span class="line">C:\Users\Admin&gt;npm --version</span><br></pre></td></tr></table></figure></p>
-<p><img src="/image/0007.png" alt="img0" title="cmd"><br><em>有如图类似版本号回复即安装成功</em></p>
-<h3 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h3><p>在D盘新建Blog/Hexo文件夹，进入文件夹，在文件夹内空白处右击，点击”Git Bash here”<br>依次输入：<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br><img src="/image/0009.png" alt="img1" title="hexo"><br>打开D:/Blog/Hexo如图显示<br><img src="/image/0030.png" alt="img19" title="index"><br>git终端输入<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><br>    出现以下提示即可以打开浏览器输入 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 开始预览安装效果<br>    <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INFO  <span class="built_in">Start</span> processing</span><br><span class="line">INFO  Hexo is running <span class="built_in">at</span> http://localhost:<span class="number">4000</span> . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><br><img src="/image/0029.png" alt="img18" title="index"></p>
-<h3 id="4-将博客部署到-Github-上"><a href="#4-将博客部署到-Github-上" class="headerlink" title="4.将博客部署到 Github 上"></a>4.将博客部署到 Github 上</h3><ul>
-<li>a. 注册Github <a href="https://github.com/join?source=header" target="_blank" rel="noopener">地址在此</a></li>
-<li>b. 创建仓库<br>  <em>点击 <strong>右上角头像-&gt;Your repository-&gt;New</strong> 开始创建，</em></li>
-</ul>
-<p><img src="/image/0008.png" alt="img2" title="New repository"></p>
-<p><img src="/image/0014.png" alt="img3" title="New repository"></p>
-<ul>
-<li>c.配置SSH密钥<br>进入Blog文件夹，右击，打开Git Bash Here <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@example.com"</span> // <span class="string">" "</span>内为你的邮箱</span><br></pre></td></tr></table></figure>
-<img src="/image/0015.png" alt="img4" title="RSA"><br>然后复制公钥,此命令会将公钥复制到剪贴板<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ clip &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-点击GitHub右上角头像 –&gt; Settings –&gt; SSH and GPG keys –&gt; New SSH key<br><img src="/image/0016.png" alt="img5" title="Add SSH Key"><br><strong>测试</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<img src="/image/0017.png" alt="img6" title="Test SSH"><br><strong>配置Git信息</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"username"</span> //填你自己的</span><br><span class="line">git config --global user.email  <span class="string">"Email"</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>返回仓库界面，点击 Use SSH 然后点击3箭头所指 复制 地址<br><img src="/image/0018.png" alt="img7" title="SSH"></p>
-<p><strong>打开D:/Blog/Hexo/_config.yml</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: 你复制的地址    </span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p><strong>//！！每个：后面都有个空格！！</strong><br><img src="/image/0019.png" alt="img8" title="_config.yml"><br><strong>然后直接 hexo g -d</strong><br><img src="/image/0020.png" alt="img9" title="error"><br><strong>若有以上Error，请执行</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>然后再执行 hexo g -d<br><img src="/image/0021.png" alt="img10" title="updata"><br><strong>恭喜！你的blog成功上传至Github，你可使用 <a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 访问你的主页</strong><br><strong>如果出现404，请打开仓库设置，GitHub Pages –&gt; Source –&gt; master branch</strong><br><img src="/image/0027.png" alt="img16" title="404"><br><img src="/image/0028.png" alt="img17" title="404"></p>
-<h3 id="5-写Blog"><a href="#5-写Blog" class="headerlink" title="5.写Blog"></a>5.写Blog</h3><p><strong>在Hexo文件夹内打开Git Bash</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"文章title"</span></span><br></pre></td></tr></table></figure>
-<p>在 /Hexo/source/_posts 文件夹下会生成相应的 “文章tiile.md” 的文档,打开编辑<br><em>基本格式为</em><br><img src="/image/0022.png" alt="img11" title="test.md"><br><strong>写完后hexo g -d推送到blog主页</strong></p>
-<h3 id="6-换主题"><a href="#6-换主题" class="headerlink" title="6.换主题"></a>6.换主题</h3><p><strong>进入Hexo官方主题库 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">点此进入</a></strong><br><img src="/image/0023.png" alt="img12" title="themes"><br>找到自己喜欢的主题点开，再点击最下面的主题地址<br><img src="/image/0024.png" alt="img13" title="themes"><br>根据官方教程安装主题<br><strong>注意 clone成功后，需将Hexo文件夹下_config.yml中的theme: 字段改为相应的主题名，如：下下图</strong><br><img src="/image/0025.png" alt="img14" title="themes"><br><img src="/image/0026.png" alt="img15" title="themes"></p>
-<p><strong>主题安装成功 hexo clean 清除缓存，hexo g -d 上传到github</strong></p>
-<p><strong>凑字数</strong></p>
-
-      </div>
-      
-        <br>
-        <p>Hello</p>
-
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
       
       
-        <br>
-        
-
-
-  <section class='meta' id="footer-meta">
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-11-04T22:38:05+08:00">
-  <a class='notlink'>
-    <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>更新于 2019年11月4日</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>hexo</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Windows/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>Windows</p></a></div>
-
-
-        
-      
-        
-          
-
-        
+        <div class="readmore">
+          <a href="/2019/12/03/vscodeC_C++/" class="flat-box">
+            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+            阅读全文
+          </a>
+        </div>
       
     </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/vscode/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> vscode</a>
+        
+          <a href="/tags/c/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> c</a>
+        
+      </div>
+    
   </section>
+</article>
 
-
-      
-      
-          <div class="prev-next">
-              
-                  <section class="prev">
-                      <span class="art-item-left">
-                          <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                          <h4>
-                              <a href="/2019/11/26/dockerStudy_1/" rel="prev" title="docker学习笔记（一）">
-                                
-                                    docker学习笔记（一）
-                                
-                              </a>
-                          </h4>
-                          
-                              
-                              <h6 class="tags">
-                                  <a class="tag" href="/tags/docker/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> docker</a>
-                              </h6>
-                          
-                      </span>
-                  </section>
-              
-              
-                  <section class="next">
-                      <span class="art-item-right" aria-hidden="true">
-                          <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                          <h4>
-                              <a href="/2019/10/30/OnethinkVulnerability/" rel="prev" title="onethink文件缓存漏洞复现">
-                                  
-                                      onethink文件缓存漏洞复现
-                                  
-                              </a>
-                          </h4>
-                          
-                              
-                              <h6 class="tags">
-                                  <a class="tag" href="/tags/onethink/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> onethink</a> <a class="tag" href="/tags/AWD/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> AWD</a>
-                              </h6>
-                          
-                      </span>
-                  </section>
-              
           </div>
+        
       
-    </section>
-  </article>
-
-
-
-  <!-- 显示推荐文章和评论 -->
-
-
+    
+  </section>
+  
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: 'github + hexo + Windows折腾过程',
-      tools: true
-    }
-  </script>
-
-
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -602,25 +488,6 @@
           
         
           
-          
-            
-              
-  <section class='widget toc-wrapper'>
-    
-<header class='pure'>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;本文目录</div>
-  
-    <!-- <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div> -->
-  
-</header>
-
-    <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-安装git"><span class="toc-text">1.安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装Node-js"><span class="toc-text">2.安装Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装Hexo"><span class="toc-text">3.安装Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-将博客部署到-Github-上"><span class="toc-text">4.将博客部署到 Github 上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-写Blog"><span class="toc-text">5.写Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-换主题"><span class="toc-text">6.换主题</span></a></li></ol>
-    </div>
-  </section>
-
-
-            
           
         
           
@@ -803,46 +670,6 @@
 
 
             
-          
-        
-          
-          
-        
-      
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-      
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
           
         
           

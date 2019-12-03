@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>VScode配置C环境</title>
+      <link href="/2019/12/03/vscodeC_C++/"/>
+      <url>/2019/12/03/vscodeC_C++/</url>
+      
+        <content type="html"><![CDATA[<h1 id="下载vscode"><a href="#下载vscode" class="headerlink" title="下载vscode"></a>下载vscode</h1><p>地址( <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">https://code.visualstudio.com/</a> )</p><h2 id="安装vscode"><a href="#安装vscode" class="headerlink" title="安装vscode"></a>安装vscode</h2><p>直接next-next即可</p><h1 id="下载MinGW"><a href="#下载MinGW" class="headerlink" title="下载MinGW"></a>下载MinGW</h1><p>地址( <a href="http://www.mingw-w64.org/doku.php" target="_blank" rel="noopener">http://www.mingw-w64.org/doku.php</a> ) </p><h2 id="安装-注意路径"><a href="#安装-注意路径" class="headerlink" title="安装,注意路径"></a>安装,注意路径</h2><p>我的在C盘<br><img src="/image/vscode0.png" alt="image"></p><h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>在系统变量Path –&gt; 添加 C:\Program Files (x86)\mingw64\lib<br><img src="/image/vscode1.png" alt="image"></p><h1 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h1><p> 打开vscode –&gt; 安装 C/C++ 和 Code Runner<br><img src="/image/vscode2.png" alt="image"><br><img src="/image/vscode3.png" alt="image"><br>注意,如果没安装clang的话不要安装推荐插件里的c/c++ clang插件,否则应该会报错<br><strong>打开: 文件&gt;首选项&gt;设置&gt;用户设置&gt;拓展&gt;Run Code Configuration</strong><br>找到  Run In Terminal  打上勾<br><img src="/image/vscode4.png" alt="image"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vscode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vscode </tag>
+            
+            <tag> c </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker学习笔记（一）</title>
       <link href="/2019/11/26/dockerStudy_1/"/>
       <url>/2019/11/26/dockerStudy_1/</url>
